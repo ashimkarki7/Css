@@ -1,51 +1,63 @@
 <template>
-  <course-goals></course-goals>
+  <div class="container">
+    <div class="content">
+      <h1>My App</h1>
+      <p>
+        This is an example of how you might use Vue Teleport. I think it is a
+        pretty neat API that is yet another awesome escape hatch that Vue
+        provides for practical reasons. Sometimes you just need to render
+        something completely outside the Vue component tree.
+      </p>
+      <button @click="showModal = true">Show Modal</button>
+      <teleport to="#modal-root">
+        <Modal v-show="showModal" @close="showModal = false">
+          This is the secret modal message!
+        </Modal>
+      </teleport>
+    </div>
+  </div>
 </template>
 
 <script>
-import CourseGoals from "./components/CourseGoals.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
+  name: "App",
   components: {
-    CourseGoals,
+    Modal,
+  },
+  data() {
+    return {
+      showModal: false,
+    };
   },
 };
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: sans-serif;
-}
-
-body {
+html,
+body,
+#app {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  max-width: 25rem;
-  margin: 3rem auto;
-  padding: 1rem;
-  border-radius: 12px;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-  background-color: #1f001f;
-  border: 1px solid #1f001f;
-  color: white;
-  font: inherit;
-  cursor: pointer;
-  padding: 0.5rem 1.5rem;
-  margin-right: 1rem;
-}
-
-button:hover,
-button:active {
-  background-color: #750a75;
-  border-color: #750a75;
+.content {
+  max-width: 400px;
+  position: relative;
 }
 </style>
