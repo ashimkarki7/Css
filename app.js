@@ -1,32 +1,35 @@
-// Vue.createApp({
-//     data: function(){
+//controling html part with vue app
+//creates vue app can be stored as variable or constant
+//const app = vue.createApp(); or // // Vue.createApp({
+// //     data: function(){
 
-//     }
-// })
-Vue.createApp({
-    data(){
-        return{
-goals:[],
-enteredValue: ''
-        };
-    },
-    methods:{
-        addGoal(){
-            this.goals.push(this.enteredValue)
-this.enteredValue =''
-        }
+
+const app =Vue.createApp({
+data (any){
+    console.log('print',any)
+    return {
+        courseGoal: 'Finish the Course and learn Vue!2',
+        courseGoalA: 'Masrer learn Vue!2',
+        courseLink: 'https://ekbana.com',
+        vueLink: 'https://vuejs.org/'
+
     }
-}).mount('#app');
-// const vm = app.mount('#app')
-// const buttonEl = document.querySelector('button');
-// const inputEl = document.querySelector('input');
-// const listElUL = document.querySelector('ul');
-// function addGoal (){
-//     const enteredValue = inputEl.value;
-//     const listItemEl=document.createElement('li');
-// listItemEl.textContent = enteredValue;
-// listElUL.appendChild(listItemEl)
-// inputEl.value
-// }
+},
+methods:{
+    outputGoal(){
+const randomNumber = Math.random();
+if (randomNumber < 0.5){
+    return this.courseGoal;
+} else {
+    return this.courseGoalA;
+}
+    }
 
-// buttonEl.addEventListener('click', addGoal);
+}
+});
+
+app.mount('#user-goal')
+
+// // })
+//which part of html to control
+   
