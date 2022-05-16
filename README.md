@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-# studious-Vue
-Vue.js learning
-=======
-# Getting Started with Create React App
-
+css react
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
